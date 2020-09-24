@@ -3,13 +3,24 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "type":"module",
   "scripts": {
-    "start": "",
-    "build": ""
+    "dev": "web-dev-server",
+    "start": "yarn build && cd dist && http-server -o -c-1 -p 8080",
+    "build": "rimraf dist && rollup -c rollup.config.js --chunkFileNames '[name]-[hash].js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@web/dev-server": "^0.0.10",
+    "@web/dev-server-rollup": "^0.2.9",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.28.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.3.0"
+  },
   "dependencies": {
     "@material/mwc-button": "^0.18.0",
     "@material/mwc-icon": "^0.18.0",
